@@ -28,6 +28,8 @@ totalStepsEachDay <- tapply(activityData$steps, activityData$date, FUN=sum, na.r
 qplot(totalStepsEachDay, binwidth=1000, xlab="total number of steps taken each day")
 ```
 
+![plot of total Steps Each Day](instructions_fig/totalStepsEachDay.png)
+
 ```r
 #calculate mean and median number of steps taken each day
 #mean total number of steps
@@ -60,6 +62,8 @@ averageStepsEachDay <- aggregate(x=list(steps=activityData$steps), by=list(inter
 #plot time series
 ggplot(data=averageStepsEachDay, aes(x=interval, y=steps)) + geom_line() + xlab("5-minute interval") + ylab("average number of steps taken")
 ```
+
+![plot of average Time Series](instructions_fig/averageTimeSeries.png)
 
 
 ```r
@@ -105,6 +109,8 @@ totalStepsWithMissingValues <- tapply(replaced.activityData$steps, replaced.acti
 qplot(totalStepsWithMissingValues, binwidth=1000, xlab="total number of steps taken each day")
 ```
 
+![plot of total Steps With Missing Values](instructions_fig/totalStepsWithMissingValues.png)
+
 
 ## Are there differences in activity patterns between weekdays and weekends?
 ```r
@@ -127,3 +133,5 @@ weekdayOrWeekendAverage <- aggregate(steps ~ interval + day, data=replaced.activ
 
 ggplot(weekdayOrWeekendAverage, aes(interval, steps)) + geom_line() + facet_grid(day ~ .) + xlab("5-minute interval") + ylab("Number of steps")
 ```
+
+![plot of total Steps With Missing Values](instructions_fig/activityPatternDifference.png)

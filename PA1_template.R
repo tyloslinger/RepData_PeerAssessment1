@@ -1,5 +1,5 @@
 #unzip data file
-unzip(zipfile = "activity.zip")
+unzip(zipfile = "activity.zip", exdir=".")
 #read file
 activityData <- read.csv("activity.csv")
 
